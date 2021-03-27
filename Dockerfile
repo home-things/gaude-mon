@@ -14,8 +14,8 @@ USER deno
 # RUN deno cache src/deps.ts
 
 # These steps will be re-run upon each file change in your working directory:
-# ADD . .
+ADD . .
 # Compile the src/index app so that it doesn't need to be compiled each startup/entry.
 RUN deno cache src/index.ts
 
-CMD ["run", "--allow-net", "src/index.ts"]
+CMD ["run", "--allow-net", "--allow-read", "--allow-write", "src/index.ts"]
