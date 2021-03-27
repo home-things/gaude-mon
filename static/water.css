@@ -1,0 +1,85 @@
+:root {
+  --top-margin: 7vh;
+  --logo-size: 100px;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  font-family: "Helvetica Neue", "Helvetica", Tahoma, sans-serif;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#9fb2d3+0,9fb2d3+0,cbebff+65,6b6f78+100 */
+  background: #9fb2d3; /* Old browsers */
+  background: url(back.jpg) no-repeat center / cover,
+    linear-gradient(170deg, #9fb2d3 0%, #9fb2d3 0%, #cbebff 15%, #3f442a 100%);
+  font-size: 100px;
+  color: white;
+}
+
+.logo {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  position: absolute;
+  top: var(--top-margin);
+  left: calc(50% - 50px);
+  transform: translate(-50%);
+  animation: spin 30s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+main {
+  margin: auto;
+  width: max-content;
+  text-align: center;
+}
+main > * + * {
+  margin-top: 16px;
+}
+
+.value {
+  text-align: right;
+  font-family: monospace;
+  max-width: 460px;
+  /*text-shadow: 0 0 20px black, 0 0 50px black;*/
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  width: fit-content;
+  margin-left: auto;
+  padding: 0.1ex 0.5em;
+  border-radius: 16px;
+  font-weight: bold;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.value.hot {
+  color: orangered;
+}
+
+.value.cold {
+  color: cornflowerblue;
+}
+
+.updated {
+  font-size: 0.4em;
+  text-shadow: 0 1px 0px black, 0 4px 4px black, 0 4px 16px black;
+}
+
+@media (max-width: 375px), (max-height: 375px) {
+  body {
+    font-size: 60px;
+  }
+}
+@media (max-height: 375px) {
+  main {
+    margin-top: calc(var(--logo-size) + var(--top-margin) + 16px);
+  }
+}
